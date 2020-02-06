@@ -2,6 +2,7 @@
 FROM node:12-alpine AS dev
 EXPOSE 8848
 WORKDIR /app
+
 #-------prod-----------
 
 # STAGE: Builder
@@ -17,7 +18,6 @@ FROM node:12-alpine AS prod-dependencies
 WORKDIR /app
 COPY ["package.json", "yarn.lock", "./"]
 RUN yarn install --prod
-
 
 # STAGE: Run migrations
 FROM builder AS migrate
