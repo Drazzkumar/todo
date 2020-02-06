@@ -1,7 +1,7 @@
 {
-  "name": "express-api-es6-starter",
+  "name": "todo-api",
   "version": "1.0.0",
-  "description": "Express API ES6 Starter",
+  "description": "Todo  App API",
   "scripts": {
     "start": "node dist",
     "prestart": "yarn build",

@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Express API ES6 Starter" src="https://i.imgur.com/qeAbxtQ.png">
+  <img alt="Todo  App API" src="https://i.imgur.com/qeAbxtQ.png">
 </h1>
 
 > Starter application for building APIs with Express.js

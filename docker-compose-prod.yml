@@ -1,32 +1,38 @@
+
 version: "3.4"
 services:
   backend:
     build:
       context: api
-      target: dev
+      target: prod
     volumes:
-      - ./api:/app
-    command: sh -c "yarn migrate && yarn seed && yarn start:dev"
+      - ./api/.env.docker:/app/.env
     ports:
       - "8848:8848"
     depends_on:
       - pg
 
+  migration:
+    build:
+      context: api
+      target: migrate
+    volumes:
+      - ./api/.env.docker:/app/.env
+    depends_on:
+      - pg
+      
   pg:
     image: postgres:11-alpine
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=mysecretpassword
       - POSTGRES_DB=express
-      
+
   todo_app:
     build:
       context: todo
-      target: dev
-    volumes:
-      - ./todo:/app
-    command: yarn start
+      target: prod
     ports:
-      - "3000:3000"
+      - "5000:80"
     depends_on:
       - backend

@@ -1,44 +1,38 @@
 # STAGE: Development
-FROM node:dubnium-alpine AS dev
-
-# Port to listen on
+FROM node:12-alpine AS dev
 EXPOSE 8848
-
-# Copy app and install packages
 WORKDIR /app
-COPY . /app/
-
-RUN yarn
-
-# Default app commands
-CMD ["yarn", "start:dev"]
+#-------prod-----------
 
 # STAGE: Builder
-FROM node:dubnium-alpine AS builder
+FROM node:12-alpine AS builder
 WORKDIR /app
-COPY --from=dev /app /app
+COPY package.json /app/
+RUN yarn
+COPY . /app/
 RUN yarn build
 
 # STAGE: Prod Dependencies Builder
-FROM node:dubnium-alpine AS prod-dependencies
+FROM node:12-alpine AS prod-dependencies
 WORKDIR /app
 COPY ["package.json", "yarn.lock", "./"]
 RUN yarn install --prod
 
+
 # STAGE: Run migrations
-FROM dev AS migrate
+FROM builder AS migrate
 WORKDIR /app
-COPY --from=dev /app /app
+COPY --from=builder /app /app
 CMD yarn migrate && yarn seed
 
 # STAGE: Rollback migrations
-FROM dev AS migrate-rollback
+FROM builder AS migrate-rollback
 WORKDIR /app
-COPY --from=dev /app /app
+COPY --from=builder /app /app
 CMD yarn rollback
 
 # STAGE: Prod Deploy Ready Image
-FROM node:dubnium-alpine AS prod
+FROM node:12-alpine AS prod
 EXPOSE 8848
 WORKDIR /app
 COPY public /app/public
