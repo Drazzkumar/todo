@@ -1,0 +1,42 @@
+{
+  "todos": [{
+      "id": 1,
+      "data": "Create a todo list",
+      "isDone": true,
+      "created_at": 1563844255142,
+      "isStared": false
+    },
+    {
+      "id": 2,
+      "data": "Make todo list better",
+      "isDone": false,
+      "created_at": 1563844256142,
+      "isStared": false
+    },
+    {
+      "id": 3,
+      "data": "Use react redux",
+      "isDone": false,
+      "created_at": 1563844257142,
+      "isStared": false
+    },
+    {
+      "id": 4,
+      "data": "Divide into various category",
+      "isDone": false,
+      "created_at": 1563844258142,
+      "isStared": false
+    },
+    {
+      "id": 5,
+      "data": "Create the HOC",
+      "isDone": false,
+      "created_at": 1563844955122,
+      "isStared": false
+    }
+  ],
+  "posts": [{
+    "id": 1,
+    "data": "Make todo list better"
+  }]
+}

@@ -1,0 +1,265 @@
+.header,
+.action-list {
+  background: #239d57;
+  color: #fff;
+
+}
+
+.header h1 {
+  color: #fff;
+  width: 200px;
+  text-transform: uppercase;
+}
+
+.header h1,
+.header .search-input {
+  padding: 10px 0;
+  float: left;
+  width: 20%;
+  vertical-align: middle;
+}
+
+.header .search-input {
+  padding: 10px 0;
+  width: 80%;
+}
+
+.header .search-input ::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.header .search-input i.fa-search {
+  position: absolute;
+  z-index: 10;
+  margin-top: 9px;
+  color: #fff;
+  margin-left: 6px;
+  cursor: text;
+  -webkit-transition: opacity .1s ease-in;
+  transition: opacity .1s ease-in;
+}
+
+.search-input input[type="text"] {
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 5px;
+  width: 50%;
+  padding-left: 30px;
+  margin-top: 2px;
+  font-size: 18px;
+  background: 0;
+  transition: width .2s ease-in;
+}
+
+.search-input input[type="text"]:focus {
+  width: 90%;
+  background-color: #56bc81;
+}
+
+.search-input input[type="text"]:hover {
+  background-color: #8fd2ab;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+
+.todo-container {
+  margin: 20px 0;
+}
+
+.todo-input input[type="text"] {
+  width: 85%;
+  display: inline-block;
+  height: 40px;
+  vertical-align: middle;
+  font-size: 25px;
+  border: 2px solid #239d57;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.todo-input input[type="text"].edit {
+  background-color: #bee7cf;
+}
+
+.todo-input input[type="text"].edit+input[type="submit"] {
+  background-color: #bee7cf;
+  color: #000;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  height: 40px;
+  vertical-align: middle;
+  width: 13%;
+  background-color: #239d57;
+  color: #fff;
+  border: 2px solid #239d57;
+  border-radius: 5px;
+  margin-left: 1%
+}
+
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.action-list,
+.todo-list {
+  float: left;
+  margin-top: 10px;
+
+}
+
+.action-list {
+  width: 19%;
+  list-style: none;
+  margin-right: 1%;
+}
+
+.action-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.action-list li:hover {
+  background-color: #8fd2ab;
+}
+
+.action-list li.active {
+  background-color: #56bc81;
+}
+
+.todo-list {
+  width: 80%;
+  height: 80vh;
+  overflow: auto;
+  padding: 0 10px;
+}
+
+.todo-list .fa-star {
+  color: #fff;
+}
+
+.todo-list .fa-star.stared {
+  color: #239d57;
+}
+
+.todo {
+  width: 100%;
+  background-color: #56bc81;
+  font-size: 18px;
+  padding: 5px;
+  color: #fff;
+  overflow-wrap: break-word;
+  cursor: pointer;
+}
+
+.todo:nth-child(odd) {
+  background-color: #8fd2ab;
+}
+
+.todo-item {
+  width: 90%;
+  float: left;
+}
+
+.todo-text.done {
+  text-decoration: line-through;
+}
+
+.todo-text .searched-text {
+  color: gray;
+  background-color: #FFFF00;
+}
+
+.todo:hover {
+  background-color: #72c394;
+}
+
+input[type="checkbox"],
+.todo-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  cursor: pointer;
+  background: none;
+  height: 20px;
+  margin: 0 10px;
+}
+
+.actions {
+  display: none;
+  float: right;
+}
+
+.todo:hover .actions {
+  display: block;
+}
+
+.todo .fa-edit {
+  padding: 0 10px;
+}
+
+.loader-component {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: #8fd2ab;
+}
+
+.loader-component .loder {
+  position: absolute;
+  color: #fff;
+  font-size: 4rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader-component .loder span {
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+
+  0%,
+  20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow:
+      .25em 0 0 rgba(0, 0, 0, 0),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0, 0, 0, 0),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+
+  80%,
+  100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;
+  }
+}
