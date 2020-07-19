@@ -60,7 +60,7 @@
     "helmet": "^3.21.2",
     "http-status-codes": "^1.4.0",
     "knex": "^0.20.4",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.19",
     "morgan": "^1.9.1",
     "pg": "^7.15.1",
     "serve-favicon": "^2.5.0",
